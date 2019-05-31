@@ -30,16 +30,18 @@ def inventory_report(products):
             count_unique.update({prod.name:1})
         else:
             count_unique.update({prod.name: count_unique.get(prod.name)+1})
-            #print(prod.name)
-            #print(count_unique.get(prod.name))
-
-    print(count_unique)
-    for uniq in unique_names:
-        #print(count_unique.get(uniq.name) + uniq.name)
-        print('There are ' + str(count_unique.get(uniq.name)) + ' of ' + uniq.name)
-
-    #pass  # TODO - your code! Loop over the products to calculate the report.
 
 
-#if __name__ == '__main__':
-inventory_report(generate_products())
+    price_mean = sum([p.price for p in products])
+    weight_mean = sum([p.weight for p in products])
+    flamibility_mean = sum([p.flamibility for p in products])
+
+    print('ACME CORPORATION OFFICIAL INVENTORY REPORT')
+    print('Unique product names ', len(count_unique))
+    print('Average price ', price_mean)
+    print('Average weight ', weight_mean)
+    print('Average flamibility ', round(flamibility_mean,1))
+
+
+if __name__ == '__main__':
+    inventory_report(generate_products())
