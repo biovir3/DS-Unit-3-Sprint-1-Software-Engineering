@@ -29,13 +29,17 @@ def inventory_report(products):
             unique_names.append(prod)
             count_unique.update({prod.name:1})
         else:
-            count_unique.update(prod.name, count_unique.get(prod.name)+1)
+            count_unique.update({prod.name: count_unique.get(prod.name)+1})
+            #print(prod.name)
+            #print(count_unique.get(prod.name))
 
+    print(count_unique)
     for uniq in unique_names:
-        print('There are ' + count_unique.get(uniq) + ' of ' + uniq)
+        #print(count_unique.get(uniq.name) + uniq.name)
+        print('There are ' + str(count_unique.get(uniq.name)) + ' of ' + uniq.name)
 
     #pass  # TODO - your code! Loop over the products to calculate the report.
 
 
-if __name__ == '__main__':
-    inventory_report(generate_products())
+#if __name__ == '__main__':
+inventory_report(generate_products())
