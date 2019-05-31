@@ -6,17 +6,19 @@ from acme import Product
 ADJECTIVES = ['Awesome', 'Shiny', 'Impressive', 'Portable', 'Improved']
 NOUNS = ['Anvil', 'Catapult', 'Disguise', 'Mousetrap', '???']
 
+
 def generate_products(num_products=30):
     products = []
     # TODO - your code! Generate and add random products.
-    for _ in range(0,num_products):
-        name = (ADJECTIVES[randint(0,(len(ADJECTIVES)-1))] + ' ' + NOUNS[randint(0,(len(ADJECTIVES)-1))])
+    for _ in range(0, num_products):
+        name = (ADJECTIVES[randint(0, (len(ADJECTIVES)-1))] +
+                ' ' + NOUNS[randint(0, (len(ADJECTIVES)-1))])
 
-        price=randint(5,100)
-        weight=randint(5,100)
-        flamibility=round(uniform(0.0,2.5),1)
+        price = randint(5, 100)
+        weight = randint(5, 100)
+        flamibility = round(uniform(0.0, 2.5), 1)
 
-        products.append(Product(name,price,weight,flamibility))
+        products.append(Product(name, price, weight, flamibility))
     return products
 
 
@@ -27,10 +29,9 @@ def inventory_report(products):
     for prod in products:
         if prod.name not in unique_names:
             unique_names.append(prod)
-            count_unique.update({prod.name:1})
+            count_unique.update({prod.name: 1})
         else:
             count_unique.update({prod.name: count_unique.get(prod.name)+1})
-
 
     price_mean = sum([p.price for p in products])
     weight_mean = sum([p.weight for p in products])
@@ -40,7 +41,7 @@ def inventory_report(products):
     print('Unique product names ', len(count_unique))
     print('Average price ', price_mean)
     print('Average weight ', weight_mean)
-    print('Average flamibility ', round(flamibility_mean,1))
+    print('Average flamibility ', round(flamibility_mean, 1))
 
 
 if __name__ == '__main__':

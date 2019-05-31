@@ -2,24 +2,25 @@
 
 import random
 
+
 class Product:
 
     def __init__(self,
-                 name = '',
-                 price = 10,
-                 weight = 20,
-                 flamibility = 0.5,
-                 identifier = 0):
+                 name='',
+                 price=10,
+                 weight=20,
+                 flamibility=0.5,
+                 identifier=0):
 
         self.name = name
         self.price = price
         self.weight = weight
         self.flamibility = flamibility
-        self.identifier = random.randint(1000000,9999999)
+        self.identifier = random.randint(1000000, 9999999)
 
     def stealability(self):
 
-        stealable = self.price/self.weight
+        stealable = self.price / self.weight
 
         if(stealable < 0.5):
             return('Not so stealable...')
@@ -38,16 +39,17 @@ class Product:
         else:
             return('...BABOOM!!')
 
+
 class BoxingGlove(Product):
 
     def __init__(self,
-                name = '',
-                price = 0,
-                weight = 0,
-                flamibility = 0,
-                identifier = 0):
+                 name='',
+                 price=0,
+                 weight=0,
+                 flamibility=0,
+                 identifier=0):
 
-        super().__init__(name,price,weight,flamibility,identifier)
+        super().__init__(name, price, weight, flamibility, identifier)
         self.weight = 10
 
     def explode(self):
